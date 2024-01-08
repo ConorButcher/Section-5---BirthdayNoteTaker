@@ -29,12 +29,12 @@ class ViewController: UIViewController {
         
         if (storedName as? String) != nil {
             UserDefaults.standard.removeObject(forKey: "name")
-            nameLabel.text = "Name: "
+            nameLabel.text = "Name:"
         }
         
         if (storedBirthday as? String) != nil {
             UserDefaults.standard.removeObject(forKey: "birthday")
-            birthdayLabel.text = "Birthday: "
+            birthdayLabel.text = "Birthday:"
         }
         
     }
