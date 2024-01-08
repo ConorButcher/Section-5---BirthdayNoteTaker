@@ -22,6 +22,23 @@ class ViewController: UIViewController {
         birthdayLabel.text = "Birthday: \(birthdayTextField.text!)"
     }
     
+    @IBAction func deleteButton(_ sender: Any) {
+        
+        let storedName = UserDefaults.standard.object(forKey: "name")
+        let storedBirthday = UserDefaults.standard.object(forKey: "birthday")
+        
+        if (storedName as? String) != nil {
+            UserDefaults.standard.removeObject(forKey: "name")
+            nameLabel.text = "Name: "
+        }
+        
+        if (storedBirthday as? String) != nil {
+            UserDefaults.standard.removeObject(forKey: "birthday")
+            birthdayLabel.text = "Birthday: "
+        }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,10 +46,10 @@ class ViewController: UIViewController {
         let storedBirthday = UserDefaults.standard.object(forKey: "birthday")
         
         if let newName = storedName as? String {
-            nameLabel.text = newName
+            nameLabel.text = "Name: \(newName)"
         }
         if let newBirthday = storedBirthday as? String {
-            birthdayLabel.text = newBirthday
+            birthdayLabel.text = "Birthday: \(newBirthday)"
         }
         
         
